@@ -1,4 +1,5 @@
 #include "../httplib/httplib.h"
+#include "serverfunc.h"
 
 #include <iostream>
 #include <thread>
@@ -26,13 +27,7 @@ int main() {
         }
     });
 
-    svr.Get("/echo", [](const httplib::Request &req, httplib::Response &res) {
-        res.set_content("echo", "text/plain");
-    });
-
-    svr.Post("/echo", [](const httplib::Request &req, httplib::Response &res) {
-        res.set_content(req.body, "text/plain");
-    });
+    svr.Post("/command", handle_request);
 
     svr.listen("0.0.0.0", 8080);
     
