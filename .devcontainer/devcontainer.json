@@ -1,0 +1,19 @@
+{
+    "name": "C++ Echo Server Dev Container",
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "appPort": ["8080:8080"],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}
+
